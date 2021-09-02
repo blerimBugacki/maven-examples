@@ -2,12 +2,16 @@ pipeline{
     agent any
 
     stages{
-        stage("Build"){
-            steps{
-                sh "mvn -version"
-                sh "mvn clean install"
-            }
-        }
+        stage('Compile stage') {
+    steps {
+      sh '''
+        mvn -version
+        cd java-project
+        mvn package
+        mvn clean compile
+        '''
+      }
+    }
     }
 
 
