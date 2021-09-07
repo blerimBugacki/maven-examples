@@ -11,8 +11,8 @@ pipeline{
       sh '''
 	PATH=$MAVEN_HOME:/usr/local/bin
         cd java-project
-        //mvn package
-        //mvn clean compile
+        #mvn package
+        #mvn clean compile
         '''
       }
     }
