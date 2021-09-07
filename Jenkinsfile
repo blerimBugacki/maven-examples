@@ -16,6 +16,23 @@ pipeline{
         '''
       }
     }
+stage('Testing stage') {
+      steps {
+      sh '''
+        PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
+        cd java-project
+        mvn test
+        '''
+      }
+    }
+    stage('Final Jenkins Pipeline Stage') {
+      steps {
+      sh "echo 'Jenkins Pipeline Complete'"
+      junit "java-project/target/surefire-reports/*.xml"
+      }
+    }
+
+
     }
 
 
