@@ -9,7 +9,7 @@ pipeline{
         stage('Compile stage') {
     steps {
       sh '''
-	PATH=$MAVEN_HOME:/usr/local/bin
+	PATH=$MAVEN_HOME:/usr/local/bin:$PATH
         cd java-project
         mvn package
         mvn clean compile
